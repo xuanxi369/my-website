@@ -1,0 +1,172 @@
+:root {
+  --black: #1a1a1a;
+  --gold: #ffd700;
+  --gold-dark: #b8860b;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background: var(--black);
+  color: #fff;
+  line-height: 1.6;
+  flex: 1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 'Helvetica Neue', sans-serif;
+}
+
+/* 导航栏 */
+.nav-bar {
+  background: rgba(26, 26, 26, 0.95);
+  padding: 1.2rem 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  border-bottom: 2px solid var(--gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+.logo span {
+  color: #fff;
+  font-weight: 300;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.nav-menu a:hover {
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold);
+}
+
+/* 画廊区域 */
+.gallery-section {
+  padding: 6rem 1rem 4rem;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gold-line {
+  height: 2px;
+  background: var(--gold);
+  flex: 1;
+  margin: 0 1rem;
+  min-width: 50px;
+}
+
+.gallery-grid {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); */
+  
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+  gap: 1rem;
+}
+
+.photo-box {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) brightness(1.05);
+  transition: 0.3s;
+}
+
+.photo-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.photo-box:hover img {
+  filter: grayscale(0%);
+}
+
+.gold-overlay {
+  display: none;
+}
+
+/* 上传模块 */
+.photo-upload {
+  border: 2px dashed #ccc;
+  display: inline-block;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  width: 90%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+/* 页脚 */
+.gold-footer {
+  background: #111;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 2px solid var(--gold);
+}
+
+.gold-footer p {
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+  word-break: break-word;
+}
+
+/* 响应式适配 */
+@media (max-width: 600px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .section-header {
+    flex-direction: column;
+  }
+}
